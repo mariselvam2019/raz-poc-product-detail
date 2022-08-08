@@ -1,0 +1,1 @@
+# raz-poc-product-detail
