@@ -13,14 +13,15 @@ type Props = {
 
 
 function Footer({ items }: Props) {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
-    <div className="footer-main h-48 min-h-full grid lg:grid-cols-3 md:grid-cols-1 my-14 relative">
-      <div className="text-center w-10 lg:absolute md:absolute">
-        <Link href='/shop/t-shirt/french-connection-men-black-printed-slim-fit-pure-cotton-t-shirt'>
-          <img className="h-8 " src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600" alt="" />
-        </Link>
-      </div>
-      <div className="grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-1 col-span-2 ml-20">
+    <div className="footer-main h-48 min-h-full grid lg:grid-cols-2 md:grid-cols-1 my-14">
+      <div className="grid lg:grid-cols-4 md:grid-cols-4 sm:grid-cols-1">
+        <div className="text-center">
+          <Link href='/shop/t-shirt/french-connection-men-black-printed-slim-fit-pure-cotton-t-shirt'>
+            <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/workflow-mark.svg?color=indigo&shade=600" alt="" />
+          </Link>
+        </div>
         <div className="text-left">
           <div className="font-bold">Products</div>
           {navLinks.products.map(product => {
@@ -40,7 +41,6 @@ function Footer({ items }: Props) {
           })}        
         </div>
       </div>
-
       <div className="grid">
         <div>
           <div className="font-bold mb-8">Sign up for our newsletter</div>
@@ -51,7 +51,6 @@ function Footer({ items }: Props) {
           </div>
         </div>
       </div>
-
     </div>
   );
 }

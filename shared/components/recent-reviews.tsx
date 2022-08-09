@@ -18,7 +18,7 @@ const RecentReviews = ({reviews}: Props) => {
             <h1 className="text-2xl font-normal mb-5">Recent reviews</h1>
             <hr/>
             {reviews?.map(item => {
-                return <div key={item?.id} className="py-5 border border-t-0 grid grid-cols-3">
+                return <div className="py-5 border border-t-0 grid grid-cols-3 border-x-0">
                     <div>
                         <h2 className="font-bold">{item?.author}</h2>
                         <p>{item?.date}</p>

@@ -77,6 +77,22 @@
           "image": "https://assets.myntassets.com/f_webp,h_560,q_90,w_420/v1/assets/images/16504210/2021/12/24/744fe3ff-346a-48e7-823e-3b63582210e81640331220283-DILLINGER-Men-Tshirts-171640331219977-1.jpg",
           "brand": "ETA",
           "price": 35
+        },
+        {
+          "id": 235,
+          "title": "Basic Tee",
+          "slug": "nike-basic-tee",
+          "image": "https://assets.myntassets.com/f_webp,h_560,q_90,w_420/v1/assets/images/17149978/2022/3/9/d20ec562-98c9-435a-b753-8be819351aca1646828928254-Difference-of-Opinion-Men-Black-Graphic-Print-Drop-Shoulder--1.jpg",
+          "brand": "Nike",
+          "price": 35
+        },
+        {
+          "id": 457,
+          "title": "Artwork Tee",
+          "slug": "eta-artwork-tee",
+          "image": "https://assets.myntassets.com/f_webp,h_560,q_90,w_420/v1/assets/images/16504210/2021/12/24/744fe3ff-346a-48e7-823e-3b63582210e81640331220283-DILLINGER-Men-Tshirts-171640331219977-1.jpg",
+          "brand": "ETA",
+          "price": 35
         }
       ]
     },

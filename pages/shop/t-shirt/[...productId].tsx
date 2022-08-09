@@ -6,29 +6,36 @@ import BadgeComponent from '../../../shared/components/badge';
 import RecentReviews from '../../../shared/components/recent-reviews';
 import RelatedProduct from '../../../shared/components/product-item-card';
 import { Product } from '../../../shared/interfaces';
+import { badges } from '../../../shared/constants';
 
 type Props = {
   item?: Product
-  errors?: string,
-  badges: Array<any>
+  errors?: string
 }
 
-export default function ProductDetail({ item, badges }: Props) {
+export default function ProductDetail({ item }: Props) {
 
   return (
     <div className="bg-white">
-      <div className="w-full grid grid-cols-1 gap-y-8 gap-x-6 items-start sm:grid-cols-12 lg:gap-x-8">
+      <div className="w-full grid lg:grid-cols-2 md:grid-cols-2">
           {/* Left - Image section */}
-          <div className="aspect-w-2 aspect-h-3 bg-gray-100 overflow-hidden sm:col-span-4 lg:col-span-5">
+          <div className="hidden md:block aspect-w-2 aspect-h-3 overflow-hidden">
             <img src={item?.images[0]} alt="Two each of gray, white, and black shirts arranged on table." className="w-full object-cover object-top" />
-            <div className='w-full grid grid-cols-2'>
-              <img src={item?.images[1]} alt="Two each of gray, white, and black shirts arranged on table." className="object-cover object-top" />
-              <img src={item?.images[2]} alt="Two each of gray, white, and black shirts arranged on table." className="object-cover object-top" />
-            </div>
+            <div className='w-full grid grid-cols-2 gap-5 mt-5'>
+              <div>
+                <img src={item?.images[1]} alt="Two each of gray, white, and black shirts arranged on table."   className="object-cover object-top" />
+              </div>
+              <div>
+                <img src={item?.images[2]} alt="Two each of gray, white, and black shirts arranged on table."   className="object-cover object-top" />
+              </div>
+            </div> 
+          </div>
+          <div className="block md:hidden lg:hidden aspect-w-2 aspect-h-3 bg-gray-100 overflow-hidden">
+            <img src={item?.images[0]} alt="Two each of gray, white, and black shirts arranged on table." className="w-full object-cover object-top" />
           </div>
 
           {/* Right - Content section */}
-          <div className="sm:col-span-8 lg:col-span-7 px-5">
+          <div className="px-5">
             <div className='flex justify-between py-5'>
               <h2 className="text-2xl font-extrabold text-gray-900 sm:pr-12">{item?.title}</h2>
               <p className="text-2xl text-gray-900 font-bold">${item?.price}</p>
@@ -59,7 +66,7 @@ export default function ProductDetail({ item, badges }: Props) {
                   </div>
                   <fieldset className="mt-4">
                     <legend className="sr-only">Choose a size</legend>
-                    <div className="grid grid-cols-6 gap-4">
+                    <div className="grid lg:grid-cols-6 grid-cols-3 gap-4">
                       {item?.availableSize.map((size, index) => {
                         return <label className="group relative border rounded-md py-3 px-4 flex items-center justify-center text-sm font-medium uppercase hover:bg-gray-50 focus:outline-none sm:flex-1 bg-white shadow-sm text-gray-900 cursor-pointer">
                           <input type="radio" name="size-choice" value={size.type} className="sr-only" aria-labelledby="size-choice-0-label" />
@@ -91,7 +98,7 @@ export default function ProductDetail({ item, badges }: Props) {
               </div>
             </section>
             <section className='mt-8'>
-              <div className='w-full grid grid-cols-2'>
+              <div className='w-full grid lg:grid-cols-2 sm:grid-cols-1 gap-4'>
                 {badges?.map(badge => {
                   return <BadgeComponent item={badge} />
                 })}
@@ -105,7 +112,7 @@ export default function ProductDetail({ item, badges }: Props) {
       <div className="w-full my-10">
           <h1 className="text-2xl font-normal mb-5">Customers also purchased</h1>
           <hr/>
-        <div className='grid grid-cols-4 gap-4'>
+        <div className='grid lg:grid-cols-4 md:grid-cols-2 sm:grid-cols-1 gap-4'>
           {item?.relatedProduct.map(product => {
             return <RelatedProduct product={product}/>
             })
@@ -129,15 +136,6 @@ export const getServerSideProps: GetServerSideProps = async ({ params }) => {
   }
   const item: Product = productData
 
-  const badges = [
-    {
-      title: "International delivery",
-      description: "Get your order in 2 Years",
-    },
-    {
-      title: "Loyalty rewards",
-      description: "Dont look other tees",
-    }
-  ]
-  return { props: { item, badges } }
+
+  return { props: { item } }
 }

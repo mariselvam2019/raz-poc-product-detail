@@ -7,7 +7,7 @@ function Layout(props :any) {
   return (
     <div className='container mx-auto px-10'>
       <Header/>
-      <main>{props.children}</main>
+      <main className='min-h-full'>{props.children}</main>
       <Footer/>
     </div>
   );

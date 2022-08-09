@@ -23,3 +23,16 @@ export const navLinks = {
         { "title": "Find a store", "id": 17 }
     ]
 }
+
+export const badges = [
+    {
+      title: "International delivery",
+      description: "Get your order in 2 Years",
+      icon: "globe"
+    },
+    {
+      title: "Loyalty rewards",
+      description: "Dont look other tees",
+      icon: "doller"
+    }
+  ]
